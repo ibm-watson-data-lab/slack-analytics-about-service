@@ -1,5 +1,7 @@
 # slack-analytics-about-service
 
+[![Build Status](https://travis-ci.org/ibm-cds-labs/slack-analytics-about-service.svg?branch=master)](https://travis-ci.org/ibm-cds-labs/slack-analytics-about-service)
+
 The Slack analytics integration service provides users access to curated information from your Slack team's social graph.
 
 1. [Set up IBM Graph and generate the social graph for your Slack team](https://github.ibm.com/analytics-advocacy/slack-analytics-sandbox).
