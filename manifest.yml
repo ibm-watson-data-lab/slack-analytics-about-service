@@ -3,7 +3,7 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: about-slack
+  name: about-slack-${random-word}
   random-route: true
   host: about-slack
   disk_quota: 1024M
