@@ -4,6 +4,7 @@ applications:
   instances: 1
   domain: mybluemix.net
   name: about-slack
+  random-route: true
   host: about-slack
   disk_quota: 1024M
   services:
