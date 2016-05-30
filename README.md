@@ -1,4 +1,4 @@
-# slack-analytics-integration-service
+# slack-analytics-about-service
 
 The Slack analytics integration service provides users access to curated information from your Slack team's social graph.
 
@@ -53,6 +53,4 @@ The Slack analytics integration service provides users access to curated informa
 	* `/about` to display help information.
 	* `/about @userName` to display statistics for `userName`.
 	* `/about #channelName` to display statistics for `channelName`.
- 
-![](https://raw.github.ibm.com/analytics-advocacy/slack-analytics-about-service/master/about_demo.gif?token=AAAf8EWprDY3XqaMTzqEJbjld_SMxZGqks5XPlwYwA%3D%3D)	
 	
