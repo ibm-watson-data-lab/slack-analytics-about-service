@@ -44,7 +44,6 @@ const StatsCollector = require('./lib/stats_collector.js');
 
  	debug('Slack-about-service: debug is enabled.');
 
-
 	var app = express();
 	app.use(bodyParser.urlencoded({extended: false}));
 
@@ -109,20 +108,23 @@ const StatsCollector = require('./lib/stats_collector.js');
 	  if ((req.body.token) && (req.body.token === process.env.SLACK_TOKEN)) {
 
 	  	 if (! req.body.text) {
-			res.send('Specify @user or #channel.');	
+			res.send('Specify @user, #channel or keyword.\n /about @somebody \n /about #some-public-channel\n /about somthing-of-interest');	
 	  	 }
 	  	 else {
 
 	  	 	var payload = null;
 
 	  	 	if(req.body.text.startsWith('@')) {
-	  	 		payload = req.body.text.substring(1, req.body.text.length);
+
+	  	 		payload = req.body.text.substring(1, req.body.text.length); // payload is a Slack user name
+
 	  	 		if(payload.split(' ').length === 1) {
+	  	 			// fetch user statistics
 		  	 		sc.getUserStats(payload, 
 		  	 			            req.body.response_url, 
 		  	 			            function(err, response) {
 		  	 			if(err) {
-							res.status(err.code).send('Activity summary cannot be created: ' + err.message);	
+							res.status(err.code).send('No data for user _' + payload + '_ is available: ' + err.message);	
 		  	 			}
 		  	 			else {
 		  	 				res.status(response.code).send(response.message);		
@@ -135,13 +137,16 @@ const StatsCollector = require('./lib/stats_collector.js');
 	  	 	}
 	  	 	else {
 		  	 	if(req.body.text.startsWith('#')) {
-		  	 		payload = req.body.text.substring(1, req.body.text.length);
+
+		  	 		payload = req.body.text.substring(1, req.body.text.length); // payload is a Slack channel name
+
 		  	 		if(payload.split(' ').length === 1) {
+		  	 			// fetch channel statistics
 			  	 		sc.getChannelStats(payload, 
 			  	 				  	 	   req.body.response_url,
 			  	 			               function(err, response) {
 			  	 			if(err) {
-								res.status(err.code).send('Activity summary cannot be created: ' + err.message);	
+								res.status(err.code).send('No data for channel _' + payload + '_ is available: ' + err.message);	
 		  	 					}
 		  	 				else {
 			  	 				res.status(response.code).send(response.message);		
@@ -153,14 +158,17 @@ const StatsCollector = require('./lib/stats_collector.js');
 		  	 		}		  	 			
 	  		 	}
 		  	 	else {
-		  	 		payload = req.body.text;
+		  	 		payload = req.body.text; // payload is a keyword (e.g. "cloudant" or "simple data pipe")
 
-		  	 		sc.getKeywordStats(payload, function(err, response) {
+		  	 		// determine whether any users or channels are associated with the specified keyword
+		  	 		sc.getKeywordStats(payload, 
+		  	 			               req.body.response_url,
+		  	 			               function(err, response) {
 		  	 			if(err) {
-							res.status(err.code).send('No information is available for keyword ' + payload + ': ' + err.message);		
+							res.status(err.code).send('No data for keyword _' + payload + '_ is available: ' + err.message);		
 	  	 					}
 	  	 				else {
-		  	 				res.status(response).send(response.message);		
+		  	 				res.status(response.code).send(response.message);		
 	  	 				}  	 					
 	  	 			});
 		  	 	}

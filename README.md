@@ -52,9 +52,12 @@ The Slack analytics integration service provides users access to curated informa
 
 	> The service won't start if no IBM Graph service instance named `slack-graph-database` is bound to the application or if environment variable `SLACK_TOKEN` is not defined.
 
-6. In Slack, enter one of the following commands: 
+6. In Slack, enter 
 
 	* `/about` to display help information.
-	* `/about @userName` to display statistics for `userName`.
-	* `/about #channelName` to display statistics for `channelName`.
+	* `/about @userName` to display information about _userName_.
+	* `/about #channelName` to display information about _channelName_.
+	* `/about keyword` to display statistics for _keyword_.
+
+	> The results are 
 	
