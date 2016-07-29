@@ -59,8 +59,12 @@ The Slack analytics integration service provides users access to your team's act
 	* `/about #channelName` to display information about _channelName_.
 	* `/about keyword` to display statistics for _keyword_.
 
-	Example output:
+	Example:
+
 	```
+	/about cloudant
+
+	Collecting information about keyword ​cloudant.
 	Keyword statistics
 	Mentioned by these users: @andreag, @claudiaw, @gregory, @jennym, @sabines, @yvonnet
 	Mentioned in these channels: #general, #geospatial, #offline-first
