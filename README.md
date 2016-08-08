@@ -12,7 +12,8 @@ The Slack analytics integration service provides users access to curated informa
    
 ###Getting started
 
-1. [Set up IBM Graph and generate the graph for your Slack team](https://github.com/ibm-cds-labs/slack-analytics).
+1. [Set up IBM Graph and generate the social and keyword graph for your Slack team](https://github.com/ibm-cds-labs/slack-analytics).
+
 2. Clone this repository and deploy the service in Bluemix. Note that the service is automatically bound to the IBM Graph service instance `slack-graph-database` you've created in step 1.
 
 	```
@@ -58,10 +59,20 @@ The Slack analytics integration service provides users access to curated informa
 
 	> The service won't start if no IBM Graph service instance named `slack-graph-database` is bound to the application or if environment variable `SLACK_TOKEN` is not defined.
 
-6. In Slack, enter one of the following commands: 
+6. In Slack, enter 
 
-	* `/about` to display help information.
+    * `/about` to display help
 	* `/about @userName` to display statistics for `userName`.
 	* `/about #channelName` to display statistics for `channelName`.
 	* `/about keyword` to display users and channels that are associated with `keyword`
-	
+
+	Example:
+
+	```
+	/about cloudant
+
+	Collecting information about keyword ​cloudant.
+	Keyword statistics
+	Mentioned by these users: @andreag, @claudiaw, @gregory, @jennym, @sabines, @yvonnet
+	Mentioned in these channels: #general, #geospatial, #offline-first
+	```	
