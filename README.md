@@ -4,7 +4,13 @@
 
 The Slack analytics integration service provides users access to curated information from your Slack team's social and keyword graph.
 
+   ![About service overview](http://developer.ibm.com/clouddataservices/wp-content/uploads/sites/47/2016/08/sa_service_details.png)
+
+###Example usage
+
    ![Slack graph interaction](https://raw.githubusercontent.com/ibm-cds-labs/slack-analytics-about-service/master/media/slash-command-demo.gif)
+   
+###Getting started
 
 1. [Set up IBM Graph and generate the graph for your Slack team](https://github.com/ibm-cds-labs/slack-analytics).
 2. Clone this repository and deploy the service in Bluemix. Note that the service is automatically bound to the IBM Graph service instance `slack-graph-database` you've created in step 1.
