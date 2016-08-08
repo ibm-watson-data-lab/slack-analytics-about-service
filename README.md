@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/ibm-cds-labs/slack-analytics-about-service.svg?branch=master)](https://travis-ci.org/ibm-cds-labs/slack-analytics-about-service)
 
-The Slack analytics integration service provides users access to curated information from your Slack team's social graph.
+The Slack analytics integration service provides users access to curated information from your Slack team's social and keyword graph.
 
-   ![Slack social graph interaction](https://raw.githubusercontent.com/ibm-cds-labs/slack-analytics-about-service/master/media/slash-command-demo.gif)
+   ![Slack graph interaction](https://raw.githubusercontent.com/ibm-cds-labs/slack-analytics-about-service/master/media/slash-command-demo.gif)
 
-1. [Set up IBM Graph and generate the social graph for your Slack team](https://github.com/ibm-cds-labs/slack-analytics).
+1. [Set up IBM Graph and generate the graph for your Slack team](https://github.com/ibm-cds-labs/slack-analytics).
 2. Clone this repository and deploy the service in Bluemix. Note that the service is automatically bound to the IBM Graph service instance `slack-graph-database` you've created in step 1.
 
 	```
@@ -24,10 +24,10 @@ The Slack analytics integration service provides users access to curated informa
 	* As _URL_, enter the service URL, e.g.  `https://about-slack.mybluemix.net/ask`.
 	* Choose `POST` as _method_. 
 	* Take note of the token. You need this value in the next step when you configure the service.
-	* Optionally, enable autocomplete and provide a description `Learn more about your Slack team` and usage hint `@user #channel`
+	* Optionally, enable autocomplete and provide a description `Learn more about your Slack team` and usage hint `@user #channel keyword`
 	* Save the slash command integration.
 
-4. Define user-defined variable `SLACK_TOKEN` and assign the token value from the Slack integration settings screen.
+4. Define user-defined variable `SLACK_TOKEN` and assign the token value from the Slack _integration settings_ screen.
 
 	```
 	$ cf set-env about-slack SLACK_TOKEN <SLACK_TOKEN_VALUE>
@@ -57,4 +57,5 @@ The Slack analytics integration service provides users access to curated informa
 	* `/about` to display help information.
 	* `/about @userName` to display statistics for `userName`.
 	* `/about #channelName` to display statistics for `channelName`.
+	* `/about keyword` to display users and channels that are associated with `keyword`
 	
