@@ -108,7 +108,7 @@ const StatsCollector = require('./lib/stats_collector.js');
 	  if ((req.body.token) && (req.body.token === process.env.SLACK_TOKEN)) {
 
 	  	 if (! req.body.text) {
-			res.send('Specify @user, #channel or keyword.\n /about @somebody \n /about #some-public-channel\n /about somthing-of-interest');	
+			res.send('Specify @user, #channel or keyword.\n /about @somebody \n /about #some-public-channel\n /about something-of-interest');	
 	  	 }
 	  	 else {
 
@@ -124,7 +124,7 @@ const StatsCollector = require('./lib/stats_collector.js');
 		  	 			            req.body.response_url, 
 		  	 			            function(err, response) {
 		  	 			if(err) {
-							res.status(err.code).send('No data for user _' + payload + '_ is available: ' + err.message);	
+							res.status(err.code).send('No information about user _' + payload + '_ is available: ' + err.message);	
 		  	 			}
 		  	 			else {
 		  	 				res.status(response.code).send(response.message);		
@@ -146,7 +146,7 @@ const StatsCollector = require('./lib/stats_collector.js');
 			  	 				  	 	   req.body.response_url,
 			  	 			               function(err, response) {
 			  	 			if(err) {
-								res.status(err.code).send('No data for channel _' + payload + '_ is available: ' + err.message);	
+								res.status(err.code).send('No information about channel _' + payload + '_ is available: ' + err.message);	
 		  	 					}
 		  	 				else {
 			  	 				res.status(response.code).send(response.message);		
@@ -165,7 +165,7 @@ const StatsCollector = require('./lib/stats_collector.js');
 		  	 			               req.body.response_url,
 		  	 			               function(err, response) {
 		  	 			if(err) {
-							res.status(err.code).send('No data for keyword _' + payload + '_ is available: ' + err.message);		
+							res.status(err.code).send('No information about keyword _' + payload + '_ is available: ' + err.message);		
 	  	 					}
 	  	 				else {
 		  	 				res.status(response.code).send(response.message);		
