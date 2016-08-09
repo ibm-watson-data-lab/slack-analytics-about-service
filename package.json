@@ -4,7 +4,7 @@
   "description": "back-end for about slack slash command",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Warning: no test specified\" && exit 0"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
