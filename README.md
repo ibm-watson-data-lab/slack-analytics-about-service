@@ -22,19 +22,37 @@ The Slack analytics integration service provides users access to curated informa
 	$ cf push --no-start
 	```
  > Do not start the service. It still needs to be configured.
+ 
+3. By default a random URL (e.g. `about-slack-interfilamentary-confiscation.mybluemix.net`) is assigned to the service. Enter `cf app about-slack` to display the assigned value. You will need this information when you configure the slash command in Slack.
+ 
+	```
+	$ cf app about-slack
+	Showing health and status for app about-slack in org ... / space ... as ...
+	OK
 
-3. Configure a new Slack integration
+	requested state: stopped
+	instances: 0/1
+	usage: 256M x 1 instances
+	urls: about-slack-interfilamentary-confiscation.mybluemix.net
+	last uploaded: Mon Aug 8 23:41:47 UTC 2016
+	stack: cflinuxfs2
+	buildpack: unknown
+
+	There are no running instances of this app.
+	```
+
+4. Configure a new Slack integration
 
 	* [Log in to your Slack team](https://www.slack.com) as an admin.
 	* Open [https://slack.com/services/new/slash-commands](https://slack.com/services/new/slash-commands) in your browser.
 	* Enter `/about` as a new command and press button for "Add a new slash command integration."
-	* As _URL_, enter the service URL, e.g.  `https://about-slack.mybluemix.net/ask`.
+	* As _URL_, enter the service URL, e.g.  `https://about-slack-....mybluemix.net/ask`.
 	* Choose `POST` as _method_. 
 	* Take note of the token. You need this value in the next step when you configure the service.
 	* Optionally, enable autocomplete and provide a description `Learn more about your Slack team` and usage hint `@user #channel keyword`
 	* Save the slash command integration.
 
-4. Define user-defined variable `SLACK_TOKEN` and assign the token value from the Slack _integration settings_ screen.
+5. Define user-defined variable `SLACK_TOKEN` and assign the token value from the Slack _integration settings_ screen.
 
 	```
 	$ cf set-env about-slack SLACK_TOKEN <SLACK_TOKEN_VALUE>
