@@ -187,3 +187,5 @@ const StatsCollector = require('./lib/stats_collector.js');
 	    console.log('Server starting on ' + appEnv.url);
 	 });
 
+	// send sample application deployment tracking request to https://github.com/IBM-Bluemix/cf-deployment-tracker-service
+	require('cf-deployment-tracker-client').track();
