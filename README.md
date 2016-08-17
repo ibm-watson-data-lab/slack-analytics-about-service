@@ -99,8 +99,8 @@ Here's the app in action. This is what it looks like when a Slack user enters an
 
 	Collecting information about keyword ​cloudant.
 	Keyword statistics
-	Mentioned by these users: @andreag, @claudiaw, @gregory, @jennym, @sabines, @yvonnet
-	Mentioned in these channels: #general, #geospatial, #offline-first
+	Mentioned by: @andreaw, @claudiag, @gregory, @jennym, @sabines, @yvonnet
+	Mentioned in: #general, #geospatial, #offline-first
 	```	
 
 What do you think of this handy graph app?  We'd love to get your thoughts, pull requests, issues, and other contributions.
