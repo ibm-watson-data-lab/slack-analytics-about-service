@@ -173,8 +173,7 @@ const StatsCollector = require('./lib/stats_collector.js');
 	  	 			});
 		  	 	}
 	  	 	}	  	 	
-	  	 }
-	     
+	  	 }	     
 	    }
 	  	else {
 	  		console.error('Received unauthorized request: Invalid or missing API token.');

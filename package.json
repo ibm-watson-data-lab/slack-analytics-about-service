@@ -1,6 +1,6 @@
 {
   "name": "slack-analytics-about-service",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "back-end for about slack slash command",
   "scripts": {
     "start": "node app.js",
